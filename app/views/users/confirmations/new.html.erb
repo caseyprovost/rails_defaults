@@ -1,0 +1,24 @@
+<% content_for :devise_form do %>
+
+  <h2 class="pt-4 mb-8 text-4xl font-bold heading">Resend confirmation instructions</h2>
+
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="input-group">
+      <%= f.label :email, class: "label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "input" %>
+    </div>
+
+    <div class="input-group">
+      <%= f.submit "Resend confirmation instructions", class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+    </div>
+  <% end %>
+
+  <hr class="mt-6 border" />
+
+  <%= render "users/shared/links" %>
+
+<% end %>
+
+<%= render "users/shared/form_wrap" %>
