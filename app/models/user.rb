@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   rolify
 
+  has_many :notifications, as: :recipient
+
   # Send devise notifications through Sidekiq
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later

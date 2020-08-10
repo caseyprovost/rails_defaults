@@ -31,6 +31,9 @@ gem "devise", "~> 4.7"
 gem "pagy", "~> 3.8"
 gem "pundit", "~> 2.1"
 
+# Notifications
+gem "noticed"
+
 # Customer Service
 gem "blazer", "~> 2.2"
 
